@@ -6,6 +6,7 @@ function TableHeader(props){
         <tr>
         <th>Name</th>
         <th>Job</th>
+        <th>Delete Row</th>
         </tr>
         </thead>
     );
@@ -17,6 +18,9 @@ function TableBody(props) {
             <tr key={index}>
                 <td>{row.name}</td>
                 <td>{row.job}</td>
+                <td>
+                    <btton onClick={() => props.removeCharacter(index)}>Delete</btton>
+                </td>
             </tr>
         );
     }
@@ -32,7 +36,7 @@ function Table(props){
     return(
         <table>
             <TableHeader/>
-            <TableBody characterData={props.characterData}/>
+            <TableBody characterData={props.characterData} removeCharacter={props.removeCharacter}/>
         </table>
     );
 }
